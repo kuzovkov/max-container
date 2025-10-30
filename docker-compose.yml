@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  max: 
+    privileged: true
+    build: .
+    container_name: max_app
+    ports:
+      - "5901:5900"
+    volumes:
+      - ./data:/home/maxuser
+      - /dev/shm:/dev/shm
+    restart: unless-stopped
+    user: maxuser
